@@ -13,8 +13,7 @@
         "illuminate/support": "^6.0",
         "intervention/image": "^2.5",
         "laravel/framework": "^6.0",
-        "laravel/tinker": "^1.0",
-        "ext-json": "*"
+        "laravel/tinker": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
