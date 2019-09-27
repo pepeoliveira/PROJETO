@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class IndexController extends Controller
 {
     public function index(){
-        $productsAll = Product::get();
+        // random order inRandomOrder()->get();
+        $productsAll = Product::orderBy('price','DESC')->get();
         return view ('index',['productsAll'=>$productsAll]);
     }
 }

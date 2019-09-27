@@ -153,6 +153,11 @@ class ProductsController extends Controller
         return redirect()->back()->with('flash_message_success','Product has been delete successfully!');
     }
     public function deleteProductImage($id = null){
+
+        // Get Product Image Name
+        $productImage=Product::where(['id'=>$id])->first();
+
+
         Product::where(['id'=>$id])->update(['image'=>'']);
         return redirect()->back()->with('flash_message_success','Product Image has been deleted successfully!');
     }
