@@ -1,5 +1,5 @@
 @php
-
+// CORRIGIR PARA INJECT ***********************************************
     use App\Http\Controllers\Controller;
     $mainCategories = Controller::MainCategories()
 
