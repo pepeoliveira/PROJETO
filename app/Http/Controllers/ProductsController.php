@@ -217,4 +217,21 @@ class ProductsController extends Controller
         return redirect()->back()->with('flash_message_success','Attribute has been deleted successfully!');
     }
 
+    public function products($url = null){
+        //get all categories and subcategories
+        $categories = Category::with('categories')->where(['parend_id'=>0])->get();
+
+        $categoriesDetails = Category::where(['url'=>$url])->first();
+
+        if($categoriesDetails->parent_id=0){
+            $subCategories = Category::where(['parent_id'=>$categoriesDetails->id])->get();
+        }else{
+            $productAll = Product::where(['category_id'=>$categoriesDetails->id])->get();
+        }
+
+        return view('products.listing')->with(compact('categories','categoriesDetails','$productAll'));
+
+
+    }
+
 }
