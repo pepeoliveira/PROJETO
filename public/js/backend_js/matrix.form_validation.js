@@ -238,5 +238,57 @@ $(document).ready(function(){
             $(this).parent('div').remove(); //Remove field html
             x--; //Decrement field counter
         });
+
+
+        // ---- DELETE ATTRIBUTE ---------
+
+        $(".deleteRecord").click(function () {
+            var id = $(this).attr('rel');
+            var deleteFunction = $(this).attr('rel1');
+            swal({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!',
+                confirmButtonClass: 'btn btn-success',
+                cancelButtonClass: 'btn btn-danger',
+                buttonsStyling: false,
+                reverseButtons: true
+            },
+                function() {
+                    window.location.href = "/admin/" + deleteFunction + "/" + id;
+
+            });
+        });
+
+        $(".deleteAtt").click(function () {
+            var id = $(this).attr('rel');
+            var deleteFunction = $(this).attr('rel1');
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.value) {
+                    Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    )
+                }
+            })
+        });
+
+
+
+
+
     });
 });

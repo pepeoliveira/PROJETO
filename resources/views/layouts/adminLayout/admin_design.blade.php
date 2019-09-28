@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="{{ asset('css/backend_css/matrix-media.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/backend_css/select2.css') }}"/>
 
+
+
     <link rel="stylesheet" href="{{ asset('css/backend_css/jquery.gritter.css') }}" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 </head>
@@ -79,7 +81,7 @@
 {{--        document.gomenu.selector.selectedIndex = 2;--}}
 {{--    }--}}
 {{--</script>--}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
 <script src="{{ asset('js/backend_js/jquery.min.js') }}"></script>
 <script src="{{ asset('js/backend_js/jquery.ui.custom.js') }}"></script>
 <script src="{{ asset('js/backend_js/bootstrap.js') }}"></script>
@@ -91,7 +93,9 @@
 <script src="{{ asset('js/backend_js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('js/backend_js/matrix.tables.js') }}"></script>
 <script src="{{ asset('js/backend_js/matrix.popover.js') }}"></script>
-<script src="{{ asset('js/backend_js/sweetalert2.js"></script>
+<script src="{{ asset('js/backend_js/matrix.popover.js') }}"></script>
+<script src="sweetalert2/dist/sweetalert2.all.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.29.2/sweetalert2.all.js"></script>
 
 </body>
 </html>

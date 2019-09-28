@@ -27,7 +27,7 @@
                         </div>
                         <div class="widget-content nopadding">
                             <form enctype="multipart/form-data" class="form-horizontal" method="post" action="{{ url('/admin/add-attributes/'.$productDetails->id) }}" name="add_attribute" id="add_attribute" novalidate="novalidate">{{ csrf_field() }}
-                                <label type="hidden" value="{{$productDetails->id}}" name="product_id">
+                                <label type="hidden" value="{{$productDetails->id}}" name="product_id"></label>
                                 <div class="control-group">
                                     <label class="control-label" ><span style="float: left">Product Name</span></label>
                                     <label class="control-label ml-5"><strong style="float: left; margin-left: 5px;">{{ $productDetails->product_name }}</strong></label>
@@ -86,10 +86,9 @@
                                         <td>{{ $attribute->size }}</td>
                                         <td>{{ $attribute->price }} €</td>
                                         <td>{{ $attribute->stock }}</td>
-                                        <td>{{ $attribute->description }}</td>
-
-                                        <td class="ml-5 text-center">
-                                            <a id="delAtt" href="{{ url('admin/delete-product/'.$attribute->id) }}" class="btn btn-danger btn-mini">Delete</a>
+                                        <td class="text-center">
+{{--                                        <a id="delAtt" href="{{ url('admin/delete-product/'.$attribute->id) }}" class="btn btn-danger btn-mini">Delete</a>--}}
+                                            <a rel="{{$attribute->id}}" rel1="delete-attribute" class="deleteAtt btn btn-danger btn-mini">Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach

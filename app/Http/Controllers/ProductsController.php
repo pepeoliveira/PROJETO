@@ -162,7 +162,9 @@ class ProductsController extends Controller
         return redirect()->back()->with('flash_message_success','Product Image has been deleted successfully!');
     }
 
-    //Attributes
+    // ATTRIBUTES
+
+    // ADD ATTRIBUTE
     public function addAttribute(Request $request, $id=null){
         $productDetails = Product::with(['attributes'])->where(['id'=>$id])->first();
 //        $productDetails = json_decode(json_encode($productDetails));
@@ -187,5 +189,11 @@ class ProductsController extends Controller
         return view('admin.products.add_attributes',['productDetails'=>$productDetails]);
     }
 
+    // DELETE ATTRIBUTE
+
+    public function deleteAttribute($id = null){
+        ProductsAttribute::where(['id'=>$id])->delete();
+        return redirect()->back()->with('flash_message_success','Attribute has been deleted successfully!');
+    }
 
 }
