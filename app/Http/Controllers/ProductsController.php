@@ -222,7 +222,7 @@ class ProductsController extends Controller
 
         return view('products.listing')->with(compact('categories','categoriesDetails','$productAll'));
 
-        
+
     }
 
 }
