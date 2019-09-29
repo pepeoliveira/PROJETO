@@ -227,7 +227,7 @@ class ProductsController extends Controller
             $cat_ids = "";
             foreach ($subCategories as $subCat){
                 $cat_ids .=$subCat->id.",";
-                //OLA PILA2
+                //OLA PIRILAU
             }
             echo $cat_ids; die;
         }else{
