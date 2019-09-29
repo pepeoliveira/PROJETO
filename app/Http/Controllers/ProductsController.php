@@ -219,17 +219,22 @@ class ProductsController extends Controller
 
     public function products($url = null){
         //get all categories and subcategories
-        $categories = Category::with('categories')->where(['parend_id'=>0])->get();
+        $categories = Category::with('categories')->where(['parent_id'=>0])->get();
 
-        $categoriesDetails = Category::where(['url'=>$url])->first();
+        $categoryDetails = Category::where(['url'=>$url])->first();
 
-        if($categoriesDetails->parent_id=0){
-            $subCategories = Category::where(['parent_id'=>$categoriesDetails->id])->get();
+        if($categoryDetails->parent_id==0){
+            $subCategories = Category::where(['parent_id'=>$categoryDetails->id])->get();
+            $cat_ids = "";
+            foreach ($subCategories as $subCat){
+                $cat_ids .=$subCat->id.",";
+            }
+            echo $cat_ids; die;
         }else{
-            $productAll = Product::where(['category_id'=>$categoriesDetails->id])->get();
+            $productAll = Product::where(['category_id'=>$categoryDetails->id])->get();
         }
 
-        return view('products.listing')->with(compact('categories','categoriesDetails','$productAll'));
+        return view('products.listing')->with(compact('categories','categoryDetails','productAll'));
 
 
     }
