@@ -220,7 +220,6 @@ class ProductsController extends Controller
     public function products($url = null){
         //get all categories and subcategories
         $categories = Category::with('categories')->where(['parent_id'=>0])->get();
-
         $categoryDetails = Category::where(['url'=>$url])->first();
 
         if($categoryDetails->parent_id==0){
@@ -234,7 +233,9 @@ class ProductsController extends Controller
             $productAll = Product::where(['category_id'=>$categoryDetails->id])->get();
         }
 
-        return view('products.listing')->with(compact('categories','categoryDetails','productAll'));
+        $productsAll = Product::where(['category_id' => $categoryDetails->id])->get();
+
+        return view('products.listing')->with(compact('categories','categoriesDetails','productsAll'));
 
 
     }

@@ -17,14 +17,18 @@ use App\Http\Controllers\AdminController;
 //    return view('welcome');
 //});
 
+
+// HOME PAGE
 Route::get('/','IndexController@index');
 
 Route::match(['get','post'],'/admin','AdminController@login');
 
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// CATEGORY / LISTING PAGE
+Route::get('products/{url}','ProductsController@products');
 
 Route::group(['middleware' => ['auth']], function(){
 
@@ -49,6 +53,7 @@ Route::group(['middleware' => ['auth']], function(){
     //Products Attributes Routes
     Route::match(['get','post'],'/admin/add-attributes/{id}','ProductsController@addAttribute');
     Route::get('/admin/delete-attribute/{id}','ProductsController@deleteAttribute');
+
 
 } );
 
