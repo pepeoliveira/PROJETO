@@ -51,15 +51,15 @@
                                         <td>{{ $product->product_color }}</td>
                                         <td>{{ $product->description }}</td>
                                         <td>{{ $product->price }} €</td>
-                                        <td>
-
+                                        <td width="6%">
                                             <img src="{{ asset('/images/backend_images/products/small/'.$product->image) }}">
 
                                         </td>
                                         <td class="ml-5 text-center">
-                                            <a href="{{ url('admin/edit-product/'.$product->id) }}"  class="btn btn-mini" style="background-color: #27a9e3; color: white;">Edit</a>
-                                            <a id="delPro" href="{{ url('admin/delete-product/'.$product->id) }}" class="btn btn-danger btn-mini">Delete</a>
-                                            <a href="{{ url('admin/add-attributes/'.$product->id) }}" class="btn btn-success btn-mini">Add Attributes</a>
+                                            <a href="{{ url('admin/edit-product/'.$product->id) }}" ><i style="color: orange; transform: scale(1.6); margin-right: 5px" class="far fa-edit" ></i></a>
+                                            <a id="delPro"  href="{{ url('admin/delete-product/'.$product->id) }}">
+                                               <i class="fas fa-trash-alt "  style="color: red; transform: scale(1.6)"></i></a>
+                                            <a href="{{ url('admin/add-attributes/'.$product->id) }}"> <i class="fas fa-plus-circle"  style="color: red; transform: scale(1.6)"></i></a></a>
                                             <a href="#" data-toggle="modal" data-target="#info_product">info</a>
                                         </td>
                                     </tr>
